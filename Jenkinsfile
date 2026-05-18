@@ -20,4 +20,6 @@ pipeline {
                 echo 'Abhishek! HelloWorld!'
                 '''
             }
-        }
+        
+	}
+}
