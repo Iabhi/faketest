@@ -6,9 +6,10 @@ pipeline {
 				Input {
 					message "Your name..."
 					ok'submit'
-					parameters{
-						string(name: 'Varity', defaultValue: 'iswasBiswas')
-                }
+					parameters {
+						// A simple text input
+						string(name: 'PERSON', defaultValue: 'Mr Biswas', description: 'Who should I say hello to?')
+					}
             }
         
 		
