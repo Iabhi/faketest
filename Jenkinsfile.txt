@@ -1,39 +1,23 @@
 pipeline {
-    agent { 
-        node {
-            label 'ab-agent-alpine'
-            }
-      }
-    triggers {
-        pollSCM '* * * * *'
-    }
+    agent none
     stages {
-        stage('Build') {
-            steps {
-                echo "Building.."
-                sh '''
-                cd myapp
-                pip install -r requirements.txt
-                '''
+        stage('Input') {
+            Input {
+                message "Your name..."
+                ok'submit'
+                parameters{
+                    string(defaultValue:'BiswasBiswas')
+                
             }
         }
-        stage('Test') {
-            steps {
+        options{
+            timeout(time:10,unit:'SECONDS')
+        }
+        
+        steps {
                 echo "Testing.."
                 sh '''
-                cd myapp
-                python3 hello.py
-                python3 hello.py --name=Brad
+                echo 'Abhishek! HelloWorld!'
                 '''
             }
         }
-        stage('Deliver') {
-            steps {
-                echo 'Deliver....'
-                sh '''
-                echo "doing delivery stuff.."
-                '''
-            }
-        }
-    }
-}
