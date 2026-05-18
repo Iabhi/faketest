@@ -1,7 +1,7 @@
 pipeline {
     agent none
     stages {
-        stage('Input') {
+        steps('Input') {
             Input {
                 message "Your name..."
                 ok'submit'
