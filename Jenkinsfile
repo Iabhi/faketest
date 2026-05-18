@@ -7,7 +7,7 @@ pipeline {
 					message "Your name..."
 					ok'submit'
 					parameters{
-						string(defaultValue:'BiswasBiswas')
+						string(name:'Var' defaultValue:'BiswasBiswas')
                 }
             }
         
