@@ -1,18 +1,21 @@
 pipeline {
     agent none
     stages {
-        steps('Input') {
-            Input {
-                message "Your name..."
-                ok'submit'
-                parameters{
-                    string(defaultValue:'BiswasBiswas')
-                
+		stage('First stage'){
+			steps('Input') {
+				Input {
+					message "Your name..."
+					ok'submit'
+					parameters{
+						string(defaultValue:'BiswasBiswas')
+                }
             }
-        }
+        
+		
         options{
             timeout(time:10,unit:'SECONDS')
         }
+		
         
         steps {
                 echo "Testing.."
@@ -20,6 +23,7 @@ pipeline {
                 echo 'Abhishek! HelloWorld!'
                 '''
             }
-        }
+			}		
+		}
 	}
 }
